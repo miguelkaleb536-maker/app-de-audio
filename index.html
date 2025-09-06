@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Player de Áudio</title>
+  <title>Meu Player de Áudio</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,13 +11,14 @@
       background: #f0f0f0;
     }
     button {
-      font-size: 20px;
+      font-size: 18px;
+      margin: 10px;
       padding: 15px 30px;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
+      cursor: pointer;
       background: #4CAF50;
       color: white;
-      cursor: pointer;
     }
     button:hover {
       background: #45a049;
@@ -25,14 +26,19 @@
   </style>
 </head>
 <body>
-  <h1>Meu Player de Áudio</h1>
-  <button onclick="playAudio()">▶ Tocar Áudio</button>
+  <h1>🎶 Player de Áudio</h1>
 
   <audio id="meuAudio" src="musica.mp3"></audio>
 
+  <button onclick="document.getElementById('meuAudio').play()">▶ Play</button>
+  <button onclick="document.getElementById('meuAudio').pause()">⏸ Pause</button>
+  <button onclick="stopAudio()">⏹ Stop</button>
+
   <script>
-    function playAudio() {
-      document.getElementById("meuAudio").play();
+    function stopAudio() {
+      let audio = document.getElementById("meuAudio");
+      audio.pause();
+      audio.currentTime = 0;
     }
   </script>
 </body>
